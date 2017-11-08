@@ -90,5 +90,6 @@ fclose(arq3);
 printf("Capacidade mochila 1: %d", peso);
 imprimi(peso);
 imprimi(raridade);
+printf("Teste");
 }
 
