@@ -5,7 +5,7 @@
 typedef struct lista{
     int peso;
     int raridade;
-    int subtracaoRaridadePeso;
+    int subtracao_Raridade_Peso;
     struct lista* prox;
     struct lista* ant;
 }ListaDupla;
@@ -14,9 +14,9 @@ typedef struct lista{
 
 void imprimi(ListaDupla* L){
     while(L!=NULL){
-        printf("Peso = %d |\t",L->peso);
-        printf("Raridade = %d\t",L->raridade);
-        printf("SubtracaoRaridadePeso = %d\n",L->subtracaoRaridadePeso);
+        printf("\nPeso = %d ",L->peso);
+        printf("\nRaridade = %d",L->raridade);
+        printf("\nSubtracao Raridade e Peso = %d",L->subtracao_Raridade_Peso);
         
         L=L->prox;
     }
@@ -42,7 +42,7 @@ ListaDupla* insereFim(ListaDupla* L,int peso, int raridade,int resultado){
 	novo->ant = NULL;
 	novo->peso = peso;
 	novo->raridade = raridade;
-	novo->subtracaoRaridadePeso = resultado;
+	novo->subtracao_Raridade_Peso = resultado;
 	novo->prox = NULL;
 	aux->prox = L;
 	
@@ -96,18 +96,18 @@ if(arq3==NULL){
 //----------------------------Leitura do Arquivo ---------------------------
 while (!feof(arq)){
 	
-	// Lê uma linha (inclusive com o '\n')
-      result = fgets(str, 100, arq);  // o 'fgets' lê até 99 caracteres ou até o '\n'
-      if (result)  // Se foi possível ler
+	// LÃª uma linha (inclusive com o '\n')
+      result = fgets(str, 100, arq);  // o 'fgets' lÃª atÃ© 99 caracteres ou atÃ© o '\n'
+      if (result)  // Se foi possÃ­vel ler
         peso = atoi(str);
 }
 while (!feof(arq2)){
 	int resultado = NULL;
-	// Lê uma linha (inclusive com o '\n')
+	// LÃª uma linha (inclusive com o '\n')
       result1 = fgets(str2, 100, arq2);
-	  result2 = fgets(str3, 100, arq3);  // o 'fgets' lê até 99 caracteres ou até o '\n'
+	  result2 = fgets(str3, 100, arq3);  // o 'fgets' lÃª atÃ© 99 caracteres ou atÃ© o '\n'
 	  resultado =   atoi(str2) - atoi(str3);
-      if (result1)  // Se foi possível ler
+      if (result1)  // Se foi possÃ­vel ler
         L = insereFim(L, atoi(str2), atoi(str3), resultado);
 }
 
@@ -119,6 +119,6 @@ fclose(arq3);
 //-------------------------impressao dps valores -------------------------------
 printf("Capacidade mochila 1: %d\n", peso);
 imprimi(L);
-printf("Teste");
+
 }
 
